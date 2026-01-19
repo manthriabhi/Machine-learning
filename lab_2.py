@@ -184,19 +184,8 @@ def main():
     jc, smc = jaccard_smc(v1, v2)
     print("Jaccard:", jc, "SMC:", smc)
 
-    # 6
-    print("Cosine similarity:", cosine_similarity(v1, v2))
-
-    # 7
-    data = np.random.randint(0, 2, (20, 5))
-    sim = similarity_matrix(data)
-    sns.heatmap(sim, annot=True)
-    plt.title("Similarity Heatmap")
-    plt.show()
-
-
-
 # RUN
 if __name__ == "__main__":
     main()
+
 
