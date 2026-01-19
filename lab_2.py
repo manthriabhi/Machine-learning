@@ -93,44 +93,6 @@ def jaccard_smc(v1, v2):
     return jc, smc
 
 
-
-#6
-def cosine_similarity(v1, v2):
-    return np.dot(v1, v2) / (np.linalg.norm(v1) * np.linalg.norm(v2))
-
-
-
-# 7
-
-def similarity_matrix(data):
-    n = len(data)
-    sim = np.zeros((n, n))
-    for i in range(n):
-        for j in range(n):
-            sim[i][j] = cosine_similarity(data[i], data[j])
-    return sim
-
-
-
-# 8
-def impute_data(df):
-    for col in df.columns:
-        if df[col].dtype in ["float64", "int64"]:
-            df[col].fillna(df[col].mean(), inplace=True)
-        else:
-            df[col].fillna(df[col].mode()[0], inplace=True)
-    return df
-
-
-# 9
-def normalize_data(df):
-    scaler = MinMaxScaler()
-    numeric_cols = df.select_dtypes(include=np.number).columns
-    df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
-    return df
-
-
-
 # MAIN FUNCTION
 
 def main():
@@ -187,5 +149,6 @@ def main():
 # RUN
 if __name__ == "__main__":
     main()
+
 
 
